@@ -1,5 +1,6 @@
 const { prompt } = require('inquirer');
 const fs = require('fs');
+const path = require('path');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -23,7 +24,8 @@ async function next(){
             createIntern();
             break;
         default: 
-            createFile();
+            //console.log(allEmployees);
+            init(allEmployees);
     }
 }
 
@@ -120,14 +122,18 @@ function createIntern(){
             allEmployees.push(intern);
             next();
         }) 
-
-
 }
 
 
-function createFile(){
-    fs.writeFile('employees.html', )
+function createFile(fileName, data){
+    fs.writeFile(path.join(__dirname, 'dist', fileName), data, err => {
+        console.log(err);
+    });
 }
 
+function init (answers) {
+    createFile('employees.html', generateHTML(answers));
+    console.log('HTML file created!');
+}
 
 createManager();
