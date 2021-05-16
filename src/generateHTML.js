@@ -16,13 +16,14 @@ function basicHTML() {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My Team</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.2/tailwind.min.css" integrity="sha512-RntatPOhEcQEA81gC/esYoCkGkL7AYV7TeTPoU+R9zE44/yWxVvLIBfBSaMu78rhoDd73ZeRHXRJN5+aPEK53Q==" crossorigin="anonymous" />
         <link rel="stylesheet" href="../dist/style.css">
     </head>
     <body>
         <header class='bg-pink-200'>
-        <h2 class='text-white text-center'>My Team</h2>
+        <h2 class='text-white text-center text-xl'>My Team</h2>
         </header>
-        <main id='employee-profiles'>
+        <main id='employee-profiles' class='grid gird-cols-1 md: grid-cols-3'>
         ${finalArray.join('')}
         </main>
     </body>
