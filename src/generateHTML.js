@@ -24,7 +24,7 @@ function basicHTML() {
         <header class='bg-pink-200'>
         <h2 class='text-white text-center text-4xl p-3'>My Team</h2>
         </header>
-        <main id='employee-profiles' class='grid grid-cols-1 md:grid-cols-3 space-x-5 space-y-5 main'>
+        <main id='employee-profiles' class='grid grid-cols-1 md:grid-cols-3 main'>
         ${finalArray.join('')}
         </main>
     </body>
@@ -33,7 +33,6 @@ function basicHTML() {
 
 function generateHTML (arr) {
     arr.forEach((employee) => {
-        console.log(employee.getRole())
         switch(employee.getRole()){
             case 'Manager':
                 managerCard(employee);
@@ -54,7 +53,7 @@ function managerCard(employee){
     let managerDiv = '';
     if (employee !== ""){
         managerDiv = `
-        <div class='bg-pink-100 rounded flex flex-col w-1/3'>
+        <div class='bg-pink-100 rounded flex flex-col w-1/3 m-5'>
             <div class='bg-pink-500 text-center text-white'>
                 <h4 class='text-xl'>${employee.name}</h4>
                 <span>
@@ -78,7 +77,7 @@ function engineerCard(employee){
     let engineerDiv = '';
     if (employee !== "") {
         engineerDiv = `
-        <div class='bg-pink-100 rounded flex flex-col w-1/3'>
+        <div class='bg-pink-100 rounded flex flex-col w-1/3 m-5'>
             <div class='bg-pink-500 text-center text-white'>
                 <h4 class='text-xl'>${employee.name}</h4>
                 <span>
@@ -89,7 +88,7 @@ function engineerCard(employee){
             <div class='text-center p-1.5 mb-1 flex flex-col'>
                 <span class='text-base mx-8 mt-1 py-2 bg-pink-50 shadow-inner rounded-sm'>Id Number: ${employee.id}</span>
                 <span class='text-base mx-8 mt-1 py-2 bg-pink-50 shadow-inner rounded-sm'>Email: <a class='underline hover:text-white' href="mailto:${employee.email}">${employee.email}</a></span>
-                <span class='text-base mx-8 mt-1 py-2 bg-pink-50 shadow-inner rounded-sm'>GitHub: <a class='underline hover:text-white' href='www.github.com/${employee.github}'>${employee.github}</a></span>
+                <span class='text-base mx-8 mt-1 py-2 bg-pink-50 shadow-inner rounded-sm'>GitHub: <a class='underline hover:text-white' target='_blank' href='https://www.github.com/${employee.github}'>${employee.github}</a></span>
             </div>
         </div>`
     }
@@ -102,7 +101,7 @@ function internCard(employee){
     let internDiv = '';
     if (employee !== "") {
     internDiv = `
-        <div class='bg-pink-100 rounded flex flex-col w-1/3'>
+        <div class='bg-pink-100 rounded flex flex-col w-1/3 m-5'>
             <div class='bg-pink-500 text-center text-white'>
                 <h4 class='text-xl'>${employee.name}</h4>
                 <span>
@@ -120,7 +119,5 @@ function internCard(employee){
     //console.log(internDiv);
     finalArray.push(internDiv);
 }
-
-console.log(finalArray);
 
 module.exports = generateHTML;
